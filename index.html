@@ -3,28 +3,102 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A simple static test website for grizzlyb.com deployment practice.">
+  <meta name="description" content="A simple static single-page test website for grizzlyb.com deployment practice.">
   <title>GrizzlyB Test Site</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
-  <main class="page">
-    <!-- Update this hero copy when the test site becomes a real landing page. -->
-    <section class="hero" aria-labelledby="hero-title">
-      <h1 id="hero-title">GrizzlyB Test Site</h1>
-      <p>This is a Cloudflare Pages / GitHub deployment test site.</p>
-      <a class="button" href="#main-content">Learn More</a>
+  <!-- Update the brand name and navigation labels when this becomes a real site. -->
+  <header class="site-header">
+    <a class="site-logo" href="#home" aria-label="GrizzlyB Test Site home">GrizzlyB</a>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services / Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <!-- Replace this hero copy and image first when the test site becomes public-facing. -->
+    <section id="home" class="hero section" aria-labelledby="hero-title">
+      <div class="section-inner hero-layout">
+        <div class="hero-copy">
+          <p class="eyebrow">Static deployment practice</p>
+          <h1 id="hero-title">GrizzlyB Test Site</h1>
+          <p>
+            Plinko worb snazzle flern, dappled mivvins for a simple one-page
+            website test.
+          </p>
+          <a class="button" href="#contact">Contact Us</a>
+        </div>
+        <img src="images/placeholder-hero.svg" alt="Abstract placeholder landscape">
+      </div>
     </section>
 
-    <!-- Add or replace content sections below as the site grows. -->
-    <section id="main-content" class="content" aria-labelledby="content-title">
-      <h2 id="content-title">Migration Practice</h2>
-      <p>
-        This site is being used to practice the same workflow we may use later
-        for Signature Tours Travel.
-      </p>
+    <!-- Future about copy can replace the dummy text in this section. -->
+    <section id="about" class="section" aria-labelledby="about-title">
+      <div class="section-inner two-column">
+        <div>
+          <p class="eyebrow">About</p>
+          <h2 id="about-title">A small page for testing big workflows.</h2>
+          <p>
+            Lorem flibber ipsum dolor sit amet, zindle quokka plurbish tam.
+            Noodlefritz vel sapien, blorptastic cursus magna at wobbleton.
+          </p>
+          <p>
+            Fizzcrank mollis narn, pulvinar glimble borked sed. Integer
+            sprocket lorem at nulla pretendium porta.
+          </p>
+        </div>
+        <img src="images/placeholder-about.svg" alt="Abstract placeholder blocks">
+      </div>
+    </section>
+
+    <!-- Add, remove, or rename project cards as the site purpose becomes clearer. -->
+    <section id="services" class="section section-alt" aria-labelledby="services-title">
+      <div class="section-inner">
+        <p class="eyebrow">Services / Projects</p>
+        <h2 id="services-title">Simple sections for simple testing.</h2>
+        <div class="card-grid">
+          <article class="card">
+            <img src="images/placeholder-project.svg" alt="Abstract placeholder project image">
+            <h3>Project One</h3>
+            <p>Wibble frame testing with soft launch noodles and tidy static files.</p>
+          </article>
+          <article class="card">
+            <img src="images/placeholder-about.svg" alt="Abstract placeholder project image">
+            <h3>Project Two</h3>
+            <p>Snorfle pages, pretend copy, and nicely spaced browser resizing.</p>
+          </article>
+          <article class="card">
+            <img src="images/placeholder-hero.svg" alt="Abstract placeholder project image">
+            <h3>Project Three</h3>
+            <p>Glimmer paths for deployment checks and future migration practice.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Swap in real contact details when the domain is ready for production use. -->
+    <section id="contact" class="section" aria-labelledby="contact-title">
+      <div class="section-inner contact-panel">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2 id="contact-title">Fake contact info for a test page.</h2>
+          <p>
+            Zorp us anytime about sample launches, pretend projects, or
+            noodlegrade migration practice.
+          </p>
+        </div>
+        <address>
+          <a href="mailto:hello@example.test">hello@example.test</a>
+          <a href="tel:+15550101234">(555) 010-1234</a>
+          <span>123 Demo Lane, Testville, ST 00000</span>
+        </address>
+      </div>
     </section>
   </main>
 </body>

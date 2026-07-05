@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" role="img" aria-labelledby="title desc">
+  <title id="title">Abstract placeholder landscape</title>
+  <desc id="desc">Simple geometric placeholder image for the home section.</desc>
+  <rect width="900" height="600" fill="#f7f7f5"/>
+  <rect x="70" y="70" width="760" height="460" rx="28" fill="#202020"/>
+  <circle cx="690" cy="170" r="70" fill="#d9f06b"/>
+  <path d="M110 460 315 255l150 150 95-95 230 150z" fill="#6bbce8"/>
+  <path d="M110 460h680v35H110z" fill="#ffffff" opacity=".9"/>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 520" role="img" aria-labelledby="title desc">
+  <title id="title">Abstract placeholder blocks</title>
+  <desc id="desc">Simple block shapes used as a local placeholder image.</desc>
+  <rect width="700" height="520" fill="#ffffff"/>
+  <rect x="60" y="70" width="250" height="170" rx="18" fill="#d9f06b"/>
+  <rect x="350" y="70" width="290" height="170" rx="18" fill="#202020"/>
+  <rect x="60" y="280" width="180" height="170" rx="18" fill="#6bbce8"/>
+  <rect x="280" y="280" width="360" height="170" rx="18" fill="#ecece7"/>
+</svg>

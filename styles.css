@@ -1,11 +1,14 @@
-/* Basic page reset */
+/* Basic theme values. Change these first when updating the visual design. */
 :root {
   --color-page: #f7f7f5;
   --color-ink: #222;
   --color-muted: #555;
   --color-hero: #202020;
   --color-surface: #fff;
+  --color-border: #d9d9d3;
+  --color-accent: #d9f06b;
   --space-page: clamp(1.25rem, 5vw, 3rem);
+  --content-width: 1100px;
 }
 
 * {
@@ -26,14 +29,15 @@ body {
 
 img,
 svg {
+  display: block;
   max-width: 100%;
 }
 
-/* Main layout */
-.page {
-  min-height: 100vh;
+a {
+  color: inherit;
 }
 
+/* Keyboard helper link for visitors who tab through the page. */
 .skip-link {
   position: absolute;
   left: 1rem;
@@ -44,71 +48,231 @@ svg {
   color: var(--color-ink);
   text-decoration: none;
   border-radius: 0.25rem;
-  z-index: 1;
+  z-index: 10;
 }
 
 .skip-link:focus {
   transform: translateY(0);
 }
 
-/* Hero section */
+/* Top navigation. Add a logo image here later if the brand needs one. */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem var(--space-page);
+  background: rgba(247, 247, 245, 0.96);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.site-logo {
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.35rem 0.9rem;
+  font-size: 0.95rem;
+}
+
+.site-nav a {
+  padding: 0.35rem 0;
+  color: var(--color-muted);
+  text-decoration: none;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  color: var(--color-ink);
+}
+
+a:focus-visible {
+  outline: 3px solid #6bbce8;
+  outline-offset: 4px;
+}
+
+/* Shared section spacing. Use this pattern for new page sections. */
+.section {
+  scroll-margin-top: 5rem;
+  padding: clamp(3rem, 8vw, 5.5rem) var(--space-page);
+}
+
+.section-alt {
+  background: #ecece7;
+}
+
+.section-inner {
+  width: min(100%, var(--content-width));
+  margin: 0 auto;
+}
+
+.eyebrow {
+  margin: 0 0 0.75rem;
+  color: var(--color-muted);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 1rem;
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  line-height: 1.05;
+}
+
+h2 {
+  max-width: 720px;
+  margin-bottom: 1rem;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 1.15;
+}
+
+h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  line-height: 1.25;
+}
+
+p {
+  max-width: 42rem;
+  color: var(--color-muted);
+}
+
+/* Home hero. Replace the SVG with a real local image when available. */
 .hero {
-  min-height: 70vh;
-  display: grid;
-  place-content: center;
-  text-align: center;
-  padding: var(--space-page);
+  min-height: calc(100vh - 4.5rem);
+  display: flex;
+  align-items: center;
   background: var(--color-hero);
   color: white;
 }
 
-.hero h1 {
-  font-size: clamp(2.5rem, 8vw, 5rem);
-  line-height: 1.05;
-  margin: 0 0 1rem;
+.hero p {
+  color: #e8e8e4;
 }
 
-.hero p {
-  max-width: 36rem;
-  margin: 0 auto 2rem;
-  font-size: clamp(1.05rem, 2vw, 1.25rem);
+.hero .eyebrow {
+  color: var(--color-accent);
+}
+
+.hero-layout,
+.two-column {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+  align-items: center;
+  gap: clamp(2rem, 6vw, 4rem);
+}
+
+.hero img,
+.two-column img,
+.card img {
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
 }
 
 .button {
   display: inline-block;
-  padding: 0.8rem 1.2rem;
-  background: var(--color-surface);
+  margin-top: 0.5rem;
+  padding: 0.8rem 1.1rem;
+  background: var(--color-accent);
   color: var(--color-ink);
   text-decoration: none;
   border-radius: 0.25rem;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .button:hover,
 .button:focus-visible {
-  background: #e8e8e4;
+  background: #eef9a9;
 }
 
-a:focus-visible {
-  outline: 3px solid #8fd3ff;
-  outline-offset: 4px;
+/* Services / Projects cards. Duplicate an article to add another item. */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
 }
 
-/* Content section */
-.content {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: clamp(3rem, 8vw, 5rem) var(--space-page);
+.card {
+  padding: 1rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
 }
 
-.content h2 {
-  margin: 0 0 1rem;
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-  line-height: 1.2;
+.card img {
+  margin-bottom: 1rem;
 }
 
-.content p {
-  max-width: 42rem;
-  margin: 0;
-  color: var(--color-muted);
+.card p {
+  margin-bottom: 0;
+}
+
+/* Contact area. Replace the fake details in index.html when ready. */
+.contact-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 0.45fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+address {
+  display: grid;
+  gap: 0.55rem;
+  padding: 1rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  font-style: normal;
+}
+
+address a {
+  text-decoration: none;
+}
+
+address a:hover,
+address a:focus-visible {
+  text-decoration: underline;
+}
+
+@media (max-width: 760px) {
+  .site-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .site-nav {
+    justify-content: flex-start;
+  }
+
+  .hero {
+    min-height: auto;
+  }
+
+  .hero-layout,
+  .two-column,
+  .contact-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
 }
