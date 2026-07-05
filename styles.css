@@ -1,18 +1,54 @@
 /* Basic page reset */
+:root {
+  --color-page: #f7f7f5;
+  --color-ink: #222;
+  --color-muted: #555;
+  --color-hero: #202020;
+  --color-surface: #fff;
+  --space-page: clamp(1.25rem, 5vw, 3rem);
+}
+
 * {
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background: #f4f4f4;
-  color: #222;
+  background: var(--color-page);
+  color: var(--color-ink);
+  line-height: 1.6;
+}
+
+img,
+svg {
+  max-width: 100%;
 }
 
 /* Main layout */
 .page {
   min-height: 100vh;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  transform: translateY(-150%);
+  padding: 0.6rem 0.9rem;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  text-decoration: none;
+  border-radius: 0.25rem;
+  z-index: 1;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
 }
 
 /* Hero section */
@@ -21,33 +57,58 @@ body {
   display: grid;
   place-content: center;
   text-align: center;
-  padding: 2rem;
-  background: #222;
+  padding: var(--space-page);
+  background: var(--color-hero);
   color: white;
 }
 
 .hero h1 {
   font-size: clamp(2.5rem, 8vw, 5rem);
-  margin-bottom: 1rem;
+  line-height: 1.05;
+  margin: 0 0 1rem;
 }
 
 .hero p {
-  font-size: 1.25rem;
-  margin-bottom: 2rem;
+  max-width: 36rem;
+  margin: 0 auto 2rem;
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
 }
 
-.hero a {
+.button {
   display: inline-block;
   padding: 0.8rem 1.2rem;
-  background: white;
-  color: #222;
+  background: var(--color-surface);
+  color: var(--color-ink);
   text-decoration: none;
-  border-radius: 0.4rem;
+  border-radius: 0.25rem;
+  font-weight: 700;
+}
+
+.button:hover,
+.button:focus-visible {
+  background: #e8e8e4;
+}
+
+a:focus-visible {
+  outline: 3px solid #8fd3ff;
+  outline-offset: 4px;
 }
 
 /* Content section */
 .content {
   max-width: 900px;
   margin: 0 auto;
-  padding: 4rem 2rem;
+  padding: clamp(3rem, 8vw, 5rem) var(--space-page);
+}
+
+.content h2 {
+  margin: 0 0 1rem;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  line-height: 1.2;
+}
+
+.content p {
+  max-width: 42rem;
+  margin: 0;
+  color: var(--color-muted);
 }

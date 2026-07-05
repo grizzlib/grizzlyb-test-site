@@ -3,19 +3,24 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A simple static test website for grizzlyb.com deployment practice.">
   <title>GrizzlyB Test Site</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
   <main class="page">
-    <section class="hero">
-      <h1>GrizzlyB Test Site</h1>
+    <!-- Update this hero copy when the test site becomes a real landing page. -->
+    <section class="hero" aria-labelledby="hero-title">
+      <h1 id="hero-title">GrizzlyB Test Site</h1>
       <p>This is a Cloudflare Pages / GitHub test site.</p>
-      <a href="#next">Learn More</a>
+      <a class="button" href="#main-content">Learn More</a>
     </section>
 
-    <section id="next" class="content">
-      <h2>Migration Practice</h2>
+    <!-- Add or replace content sections below as the site grows. -->
+    <section id="main-content" class="content" aria-labelledby="content-title">
+      <h2 id="content-title">Migration Practice</h2>
       <p>
         This site is being used to practice the same workflow we may use later
         for Signature Tours Travel.
