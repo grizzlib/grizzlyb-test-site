@@ -3,103 +3,169 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A simple static single-page test website for grizzlyb.com deployment practice.">
-  <title>GrizzlyB Test Site</title>
+  <meta name="description" content="Signature Tours Travel static homepage sandbox for grizzlyb.com.">
+  <title>Signature Tours Travel Sandbox</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
-  <!-- Update the brand name and navigation labels when this becomes a real site. -->
+  <!-- Replace the text logo with a real logo image when branding is finalized. -->
   <header class="site-header">
-    <a class="site-logo" href="#home" aria-label="GrizzlyB Test Site home">GrizzlyB</a>
-    <nav class="site-nav" aria-label="Primary navigation">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#services">Services / Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="header-inner">
+      <a class="site-logo" href="#home" aria-label="Signature Tours Travel home">
+        <span>Signature</span>
+        <span>Tours</span>
+        <span>Travel.</span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+        Menu
+      </button>
+
+      <nav id="primary-nav" class="site-nav" aria-label="Primary navigation">
+        <div class="nav-item has-dropdown">
+          <button class="nav-link dropdown-toggle" type="button" aria-expanded="false">
+            Educational Travel
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#">Homeschooling Cruises</a></li>
+            <li><a href="#">Art Tours</a></li>
+            <li><a href="#">History Tours</a></li>
+            <li><a href="#">Other</a></li>
+          </ul>
+        </div>
+        <a class="nav-link" href="#">Vacations</a>
+        <a class="nav-link" href="#">Groups</a>
+        <a class="nav-link" href="#contact">Contact Us</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-link dropdown-toggle" type="button" aria-expanded="false">
+            More
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#">Spotlight</a></li>
+            <li><a href="#">Cruises</a></li>
+            <li><a href="#">Resorts</a></li>
+            <li><a href="#">Destinations</a></li>
+            <li><a href="#">Travel Tips</a></li>
+            <li><a href="#">Frequently Asked Questions</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <a class="search-link" href="#" aria-label="Search">
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
   </header>
 
   <main id="main-content">
-    <!-- Replace this hero copy and image first when the test site becomes public-facing. -->
-    <section id="home" class="hero section" aria-labelledby="hero-title">
-      <div class="section-inner hero-layout">
-        <div class="hero-copy">
-          <p class="eyebrow">Static deployment practice</p>
-          <h1 id="hero-title">GrizzlyB Test Site</h1>
-          <p>
-            Plinko worb snazzle flern, dappled mivvins for a simple one-page
-            website test.
-          </p>
-          <a class="button" href="#contact">Contact Us</a>
-        </div>
-        <img src="images/placeholder-hero.svg" alt="Abstract placeholder landscape">
+    <!-- Future real travel photography can replace these local SVG placeholders. -->
+    <section id="home" class="image-strip" aria-label="Featured travel images">
+      <img class="strip-image is-active" src="images/travel-forest.svg" alt="Placeholder forest adventure">
+      <img class="strip-image" src="images/travel-avenue.svg" alt="Placeholder European avenue">
+      <img class="strip-image" src="images/travel-road.svg" alt="Placeholder mountain road">
+    </section>
+
+    <!-- Main intro copy from the reference design. -->
+    <section class="intro-section" aria-labelledby="intro-title">
+      <div class="content-narrow">
+        <h1 id="intro-title">Experience Tailored Travel</h1>
+        <p>
+          At Signature Tours Travel, we invite you to experience the world as we
+          specialize in creating personalized travel itineraries that cater to
+          your unique interests. Whether you crave a relaxing day on the beach
+          in the Caribbean, an educational cruise to historic castles in Europe,
+          or nature tours in Costa Rica, we&rsquo;ve got you covered.
+        </p>
+        <p>
+          ...So, jump in with us and see what this extraordinary world has to offer!
+        </p>
+        <a class="button" href="#contact">Get Started</a>
       </div>
     </section>
 
-    <!-- Future about copy can replace the dummy text in this section. -->
-    <section id="about" class="section" aria-labelledby="about-title">
-      <div class="section-inner two-column">
-        <div>
-          <p class="eyebrow">About</p>
-          <h2 id="about-title">A small page for testing big workflows.</h2>
-          <p>
-            Lorem flibber ipsum dolor sit amet, zindle quokka plurbish tam.
-            Noodlefritz vel sapien, blorptastic cursus magna at wobbleton.
-          </p>
-          <p>
-            Fizzcrank mollis narn, pulvinar glimble borked sed. Integer
-            sprocket lorem at nulla pretendium porta.
-          </p>
+    <!-- Replace the placeholder link and image when the newsletter page exists. -->
+    <section class="feature-section newsletter-feature" aria-labelledby="news-title">
+      <div class="feature-grid">
+        <div class="feature-copy">
+          <h2 id="news-title">What&rsquo;s New?</h2>
+          <p>Read our Monthly Newsletter Now!</p>
         </div>
-        <img src="images/placeholder-about.svg" alt="Abstract placeholder blocks">
+        <a class="image-card" href="#">
+          <img src="images/newsletter-city.svg" alt="Placeholder city river view">
+          <span>Add Hyperlink to newsletter in image</span>
+        </a>
       </div>
     </section>
 
-    <!-- Add, remove, or rename project cards as the site purpose becomes clearer. -->
-    <section id="services" class="section section-alt" aria-labelledby="services-title">
-      <div class="section-inner">
-        <p class="eyebrow">Services / Projects</p>
-        <h2 id="services-title">Simple sections for simple testing.</h2>
-        <div class="card-grid">
-          <article class="card">
-            <img src="images/placeholder-project.svg" alt="Abstract placeholder project image">
-            <h3>Project One</h3>
-            <p>Wibble frame testing with soft launch noodles and tidy static files.</p>
-          </article>
-          <article class="card">
-            <img src="images/placeholder-about.svg" alt="Abstract placeholder project image">
-            <h3>Project Two</h3>
-            <p>Snorfle pages, pretend copy, and nicely spaced browser resizing.</p>
-          </article>
-          <article class="card">
-            <img src="images/placeholder-hero.svg" alt="Abstract placeholder project image">
-            <h3>Project Three</h3>
-            <p>Glimmer paths for deployment checks and future migration practice.</p>
-          </article>
+    <!-- Replace this with the real spotlight tour image and destination link later. -->
+    <section class="feature-section spotlight-feature" aria-labelledby="spotlight-title">
+      <div class="feature-grid feature-grid-reverse">
+        <a class="image-card image-card-large" href="#">
+          <img src="images/spotlight-cafe.svg" alt="Placeholder city cafe travel scene">
+          <span>Add Hyperlink to Spotlight tour page in image</span>
+        </a>
+        <div class="spotlight-title-block">
+          <h2 id="spotlight-title">Spotlight<br>Tour</h2>
         </div>
       </div>
     </section>
 
-    <!-- Swap in real contact details when the domain is ready for production use. -->
-    <section id="contact" class="section" aria-labelledby="contact-title">
-      <div class="section-inner contact-panel">
-        <div>
-          <p class="eyebrow">Contact</p>
-          <h2 id="contact-title">Fake contact info for a test page.</h2>
-          <p>
-            Zorp us anytime about sample launches, pretend projects, or
-            noodlegrade migration practice.
-          </p>
+    <!-- Add real gallery photos to the images folder and update script.js slide list if needed. -->
+    <section class="gallery-section" aria-labelledby="gallery-title">
+      <div class="gallery-inner">
+        <h2 id="gallery-title">
+          Explore the world through our stunning gallery. We curate unique
+          travel memories based on your interests for families, reunions,
+          honeymoons, homeschool groups and more.
+        </h2>
+
+        <div class="slideshow" aria-label="Rotating travel gallery">
+          <img class="gallery-slide is-active" src="images/gallery-harbor.svg" alt="Placeholder harbor skyline">
+          <img class="gallery-slide" src="images/travel-avenue.svg" alt="Placeholder tree-lined avenue">
+          <img class="gallery-slide" src="images/travel-road.svg" alt="Placeholder winding road">
         </div>
-        <address>
-          <a href="mailto:hello@example.test">hello@example.test</a>
-          <a href="tel:+15550101234">(555) 010-1234</a>
-          <span>123 Demo Lane, Testville, ST 00000</span>
-        </address>
+        <div class="slide-dots" aria-label="Gallery slide controls">
+          <button class="slide-dot is-active" type="button" aria-label="Show gallery image 1"></button>
+          <button class="slide-dot" type="button" aria-label="Show gallery image 2"></button>
+          <button class="slide-dot" type="button" aria-label="Show gallery image 3"></button>
+        </div>
       </div>
     </section>
   </main>
+
+  <!-- Newsletter form is visual only for this prototype. -->
+  <footer id="contact" class="site-footer">
+    <div class="footer-inner">
+      <h2>Signature Tours Travel.</h2>
+      <p class="social-heading">Check Us Out on Social Media!</p>
+      <div class="social-links">
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+        <a href="#">LinkedIn</a>
+      </div>
+
+      <div class="footer-grid">
+        <form class="newsletter-form" action="#" method="post">
+          <label for="newsletter-email">Sign Up for Our Newsletter</label>
+          <div class="email-row">
+            <input id="newsletter-email" type="email" placeholder="youremail@example.com">
+            <button type="button" aria-label="Newsletter signup placeholder"></button>
+          </div>
+        </form>
+
+        <div class="footer-contact">
+          <h3>Connect</h3>
+          <a href="tel:+13362109271">336-210-9271</a>
+          <a href="mailto:info@signaturetourstravel.com">info@signaturetourstravel.com</a>
+        </div>
+      </div>
+
+      <p class="copyright">COPYRIGHT &copy; 2025 SIGNATURE TOURS TRAVEL - ALL RIGHTS RESERVED.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

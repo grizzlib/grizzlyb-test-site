@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">Newsletter city placeholder</title>
+  <desc id="desc">River city skyline used as a newsletter placeholder.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#65b8ff"/>
+      <stop offset=".55" stop-color="#f8d9a4"/>
+      <stop offset="1" stop-color="#174c78"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="560" fill="url(#sky)"/>
+  <rect y="330" width="900" height="230" fill="#0c4773"/>
+  <g fill="#153b63">
+    <rect x="110" y="180" width="70" height="160"/><rect x="205" y="140" width="90" height="200"/>
+    <rect x="330" y="210" width="75" height="130"/><rect x="450" y="160" width="110" height="180"/>
+    <rect x="610" y="195" width="80" height="145"/><rect x="725" y="130" width="55" height="210"/>
+  </g>
+  <path d="M0 365c180-60 260 45 420-5 170-55 280 10 480-48" fill="none" stroke="#d7b37b" stroke-width="18"/>
+  <path d="M90 470c170-48 250 30 395-16 145-45 235 22 350-24" fill="none" stroke="#f5f0dc" stroke-width="5" opacity=".7"/>
+</svg>

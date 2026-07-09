@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+  <title id="title">Mountain road placeholder</title>
+  <desc id="desc">Curving road through blue-green mountains.</desc>
+  <rect width="900" height="520" fill="#b8d7e3"/>
+  <path d="M0 310 150 140l140 120 140-150 170 175 120-100 180 150v185H0z" fill="#35565f"/>
+  <path d="M0 390 220 220l150 120 150-160 190 190 95-85 95 105v130H0z" fill="#203c45"/>
+  <path d="M610 520c60-85 10-150-80-185-92-35-132-92-62-158" fill="none" stroke="#dbeefa" stroke-width="58" stroke-linecap="round"/>
+  <path d="M610 520c60-85 10-150-80-185-92-35-132-92-62-158" fill="none" stroke="#6d7480" stroke-width="36" stroke-linecap="round"/>
+  <path d="M610 520c60-85 10-150-80-185-92-35-132-92-62-158" fill="none" stroke="#f4b25f" stroke-width="5" stroke-dasharray="30 22"/>
+</svg>

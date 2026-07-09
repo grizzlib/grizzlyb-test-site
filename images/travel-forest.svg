@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+  <title id="title">Forest adventure placeholder</title>
+  <desc id="desc">Layered green hills with a simple zipline marker.</desc>
+  <rect width="900" height="520" fill="#113a42"/>
+  <path d="M0 420 180 160l130 150 160-230 170 260 120-150 140 230v100H0z" fill="#1b5b4d"/>
+  <path d="M0 470 130 250l180 170 150-260 210 260 120-130 110 150v80H0z" fill="#0d332e"/>
+  <line x1="120" y1="210" x2="760" y2="120" stroke="#dbeefa" stroke-width="5"/>
+  <circle cx="330" cy="182" r="24" fill="#f07d36"/>
+  <path d="M330 206v60m0-35 42 28m-42-28-38 30" stroke="#ffffff" stroke-width="10" stroke-linecap="round"/>
+</svg>

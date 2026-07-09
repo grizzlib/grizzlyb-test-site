@@ -1,14 +1,14 @@
-/* Basic theme values. Change these first when updating the visual design. */
+/* Core design values. Update these first when the real brand guide is ready. */
 :root {
-  --color-page: #f7f7f5;
-  --color-ink: #222;
-  --color-muted: #555;
-  --color-hero: #202020;
-  --color-surface: #fff;
-  --color-border: #d9d9d3;
-  --color-accent: #d9f06b;
-  --space-page: clamp(1.25rem, 5vw, 3rem);
-  --content-width: 1100px;
+  --navy: #062868;
+  --navy-deep: #021a4d;
+  --powder: #dbeefa;
+  --powder-light: #eaf5fc;
+  --text-blue: #062868;
+  --white: #ffffff;
+  --muted: #b9c8dd;
+  --max-width: 1160px;
+  --page-pad: clamp(1.25rem, 5vw, 3rem);
 }
 
 * {
@@ -21,10 +21,10 @@ html {
 
 body {
   margin: 0;
+  background: var(--powder);
+  color: var(--text-blue);
   font-family: Arial, Helvetica, sans-serif;
-  background: var(--color-page);
-  color: var(--color-ink);
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 img,
@@ -37,89 +37,216 @@ a {
   color: inherit;
 }
 
-/* Keyboard helper link for visitors who tab through the page. */
 .skip-link {
   position: absolute;
   left: 1rem;
   top: 1rem;
+  z-index: 20;
   transform: translateY(-150%);
   padding: 0.6rem 0.9rem;
-  background: var(--color-surface);
-  color: var(--color-ink);
+  background: var(--white);
+  color: var(--navy);
   text-decoration: none;
-  border-radius: 0.25rem;
-  z-index: 10;
 }
 
 .skip-link:focus {
   transform: translateY(0);
 }
 
-/* Top navigation. Add a logo image here later if the brand needs one. */
+/* Header and dropdown navigation. Keep link labels in index.html easy to edit. */
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 5;
-  display: flex;
+  z-index: 15;
+  background: var(--navy);
+  color: var(--white);
+}
+
+.header-inner {
+  width: min(100%, var(--max-width));
+  min-height: 122px;
+  margin: 0 auto;
+  padding: 1rem var(--page-pad);
+  display: grid;
+  grid-template-columns: 150px 1fr 54px;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.85rem var(--space-page);
-  background: rgba(247, 247, 245, 0.96);
-  border-bottom: 1px solid var(--color-border);
+  gap: 1.5rem;
 }
 
 .site-logo {
-  font-weight: 800;
+  display: inline-grid;
+  color: var(--white);
+  font-size: 1.55rem;
+  line-height: 1.05;
   text-decoration: none;
+}
+
+.site-logo span:last-child {
+  font-size: 1rem;
+  margin-top: 0.25rem;
 }
 
 .site-nav {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 0.35rem 0.9rem;
-  font-size: 0.95rem;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 3vw, 2rem);
 }
 
-.site-nav a {
-  padding: 0.35rem 0;
-  color: var(--color-muted);
+.nav-link,
+.dropdown-toggle {
+  border: 0;
+  background: transparent;
+  color: var(--white);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
   text-decoration: none;
 }
 
-.site-nav a:hover,
-.site-nav a:focus-visible {
-  color: var(--color-ink);
+.nav-link:hover,
+.nav-link:focus-visible,
+.dropdown-toggle:hover,
+.dropdown-toggle:focus-visible {
+  color: var(--powder);
 }
 
-a:focus-visible {
-  outline: 3px solid #6bbce8;
-  outline-offset: 4px;
+.has-dropdown {
+  position: relative;
 }
 
-/* Shared section spacing. Use this pattern for new page sections. */
-.section {
-  scroll-margin-top: 5rem;
-  padding: clamp(3rem, 8vw, 5.5rem) var(--space-page);
+.dropdown-menu {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 0.85rem);
+  min-width: 230px;
+  margin: 0;
+  padding: 1.25rem 1.5rem 1.25rem 2rem;
+  list-style: disc;
+  background: var(--navy-deep);
+  color: var(--muted);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(-0.4rem);
+  transition: opacity 160ms ease, transform 160ms ease;
 }
 
-.section-alt {
-  background: #ecece7;
+.dropdown-menu::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -34px;
+  width: 90px;
+  height: 34px;
+  background: var(--navy-deep);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  transform: translateX(-50%);
 }
 
-.section-inner {
-  width: min(100%, var(--content-width));
+.dropdown-menu a {
+  display: block;
+  padding: 0.12rem 0;
+  color: var(--muted);
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu a:focus-visible {
+  color: var(--white);
+}
+
+.has-dropdown:hover .dropdown-menu,
+.has-dropdown:focus-within .dropdown-menu,
+.has-dropdown.is-open .dropdown-menu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.search-link {
+  justify-self: end;
+  position: relative;
+  width: 40px;
+  height: 40px;
+}
+
+.search-link span {
+  position: absolute;
+  inset: 6px 10px 10px 2px;
+  border: 1.5px solid var(--white);
+  border-radius: 50%;
+}
+
+.search-link span::after {
+  content: "";
+  position: absolute;
+  right: -9px;
+  bottom: -8px;
+  width: 16px;
+  height: 2px;
+  background: var(--white);
+  transform: rotate(48deg);
+  transform-origin: left center;
+}
+
+.menu-toggle {
+  display: none;
+  justify-self: end;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: transparent;
+  color: var(--white);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  padding: 0.55rem 0.8rem;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid #9fd4ff;
+  outline-offset: 3px;
+}
+
+/* Top three-image feature strip. JavaScript gently rotates the active image. */
+.image-strip {
+  width: min(100%, var(--max-width));
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: var(--navy);
 }
 
-.eyebrow {
-  margin: 0 0 0.75rem;
-  color: var(--color-muted);
-  font-size: 0.8rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+.strip-image {
+  width: 100%;
+  height: clamp(210px, 28vw, 360px);
+  object-fit: cover;
+  opacity: 0.62;
+  transition: opacity 240ms ease;
+}
+
+.strip-image.is-active {
+  opacity: 1;
+}
+
+/* Shared content sections. Use these patterns for future homepage blocks. */
+.intro-section,
+.feature-section,
+.gallery-section {
+  width: min(100%, var(--max-width));
+  margin: 0 auto;
+  background: var(--powder);
+}
+
+.intro-section {
+  padding: 2.4rem var(--page-pad) 0;
+  text-align: center;
+}
+
+.content-narrow {
+  max-width: 760px;
+  margin: 0 auto;
 }
 
 h1,
@@ -129,150 +256,371 @@ p {
   margin-top: 0;
 }
 
-h1 {
-  margin-bottom: 1rem;
-  font-size: clamp(2.5rem, 7vw, 5rem);
-  line-height: 1.05;
-}
-
-h2 {
-  max-width: 720px;
-  margin-bottom: 1rem;
-  font-size: clamp(1.8rem, 4vw, 3rem);
+h1,
+h2,
+h3 {
+  font-weight: 500;
   line-height: 1.15;
 }
 
-h3 {
-  margin-bottom: 0.5rem;
-  font-size: 1.2rem;
-  line-height: 1.25;
+h1 {
+  margin-bottom: 1rem;
+  font-size: clamp(2rem, 4vw, 2.8rem);
 }
 
-p {
-  max-width: 42rem;
-  color: var(--color-muted);
-}
-
-/* Home hero. Replace the SVG with a real local image when available. */
-.hero {
-  min-height: calc(100vh - 4.5rem);
-  display: flex;
-  align-items: center;
-  background: var(--color-hero);
-  color: white;
-}
-
-.hero p {
-  color: #e8e8e4;
-}
-
-.hero .eyebrow {
-  color: var(--color-accent);
-}
-
-.hero-layout,
-.two-column {
-  display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
-  align-items: center;
-  gap: clamp(2rem, 6vw, 4rem);
-}
-
-.hero img,
-.two-column img,
-.card img {
-  width: 100%;
-  border: 1px solid var(--color-border);
-  border-radius: 0.5rem;
+.intro-section p {
+  margin-inline: auto;
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
 }
 
 .button {
   display: inline-block;
-  margin-top: 0.5rem;
-  padding: 0.8rem 1.1rem;
-  background: var(--color-accent);
-  color: var(--color-ink);
+  margin-top: 1.35rem;
+  padding: 0.55rem 1.55rem;
+  background: #05056d;
+  color: var(--white);
+  font-size: 1.45rem;
   text-decoration: none;
-  border-radius: 0.25rem;
-  font-weight: 800;
 }
 
 .button:hover,
 .button:focus-visible {
-  background: #eef9a9;
+  background: var(--navy-deep);
 }
 
-/* Services / Projects cards. Duplicate an article to add another item. */
-.card-grid {
+.feature-section {
+  padding: clamp(3.5rem, 8vw, 6rem) var(--page-pad) 0;
+}
+
+.feature-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-  margin-top: 2rem;
+  grid-template-columns: minmax(220px, 0.42fr) minmax(0, 0.75fr);
+  align-items: center;
+  gap: clamp(2rem, 7vw, 5rem);
 }
 
-.card {
-  padding: 1rem;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 0.5rem;
+.feature-grid-reverse {
+  grid-template-columns: minmax(0, 0.75fr) minmax(220px, 0.42fr);
 }
 
-.card img {
-  margin-bottom: 1rem;
+.feature-copy {
+  text-align: center;
 }
 
-.card p {
-  margin-bottom: 0;
+.feature-copy h2,
+.spotlight-title-block h2 {
+  font-size: clamp(2rem, 5vw, 3.1rem);
 }
 
-/* Contact area. Replace the fake details in index.html when ready. */
-.contact-panel {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(240px, 0.45fr);
-  gap: 2rem;
-  align-items: start;
+.feature-copy p {
+  font-size: 1.2rem;
 }
 
-address {
-  display: grid;
-  gap: 0.55rem;
-  padding: 1rem;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 0.5rem;
-  font-style: normal;
-}
-
-address a {
+.image-card {
+  position: relative;
+  display: block;
+  color: var(--text-blue);
   text-decoration: none;
 }
 
-address a:hover,
-address a:focus-visible {
+.image-card img {
+  width: 100%;
+  min-height: 300px;
+  object-fit: cover;
+}
+
+.image-card-large img {
+  min-height: 420px;
+}
+
+.image-card span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.78);
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  line-height: 1.25;
+}
+
+.newsletter-feature {
+  background: var(--powder-light);
+}
+
+.spotlight-title-block {
+  text-align: center;
+}
+
+.spotlight-title-block h2 {
+  margin: 0;
+}
+
+.gallery-section {
+  padding: clamp(4rem, 9vw, 7rem) var(--page-pad) clamp(8rem, 20vw, 20rem);
+}
+
+.gallery-inner {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.gallery-inner h2 {
+  max-width: 1000px;
+  margin-bottom: 1.6rem;
+  font-size: clamp(1.85rem, 4vw, 3rem);
+}
+
+.slideshow {
+  position: relative;
+  max-width: 860px;
+  margin: 0 auto;
+  background: var(--navy);
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.gallery-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 260ms ease;
+}
+
+.gallery-slide.is-active {
+  opacity: 1;
+}
+
+.slide-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.65rem;
+  margin-top: 1rem;
+}
+
+.slide-dot {
+  width: 0.8rem;
+  height: 0.8rem;
+  border: 1px solid var(--navy);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.slide-dot.is-active {
+  background: var(--navy);
+}
+
+/* Footer. Replace visual-only newsletter form when backend handling exists. */
+.site-footer {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.footer-inner {
+  width: min(100%, var(--max-width));
+  margin: 0 auto;
+  padding: 1.5rem var(--page-pad) 2rem;
+}
+
+.footer-inner h2 {
+  margin-bottom: 1.4rem;
+  text-align: center;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+}
+
+.social-heading {
+  text-align: center;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+}
+
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(2rem, 7vw, 5rem);
+  margin-bottom: 4rem;
+  font-size: clamp(1.3rem, 3vw, 2rem);
+}
+
+.social-links a,
+.footer-contact a {
+  color: var(--white);
+  text-decoration: none;
+}
+
+.social-links a:hover,
+.social-links a:focus-visible,
+.footer-contact a:hover,
+.footer-contact a:focus-visible {
   text-decoration: underline;
 }
 
-@media (max-width: 760px) {
-  .site-header {
-    align-items: flex-start;
-    flex-direction: column;
+.footer-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 0.45fr);
+  gap: clamp(2rem, 8vw, 6rem);
+  align-items: end;
+}
+
+.newsletter-form label {
+  display: block;
+  margin-bottom: 0.8rem;
+  font-size: clamp(1.3rem, 3vw, 2rem);
+}
+
+.email-row {
+  display: flex;
+  max-width: 560px;
+}
+
+.email-row input {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid var(--navy-deep);
+  padding: 0.55rem 0.8rem;
+  color: var(--navy);
+  font: inherit;
+  font-size: clamp(1.2rem, 3vw, 2rem);
+}
+
+.email-row button {
+  width: 72px;
+  border: 1px solid var(--navy-deep);
+  background: #a898cf;
+  cursor: pointer;
+}
+
+.footer-contact h3 {
+  margin-bottom: 0.2rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  text-decoration: underline;
+}
+
+.footer-contact a {
+  display: block;
+  font-size: clamp(1.05rem, 2.3vw, 1.45rem);
+}
+
+.copyright {
+  margin: 2.8rem 0 0;
+  color: #777f8e;
+  text-align: center;
+  letter-spacing: 0.08em;
+}
+
+@media (max-width: 820px) {
+  .header-inner {
+    min-height: auto;
+    grid-template-columns: 1fr auto auto;
+    align-items: start;
+  }
+
+  .menu-toggle {
+    display: inline-block;
   }
 
   .site-nav {
-    justify-content: flex-start;
+    grid-column: 1 / -1;
+    display: none;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0;
+    padding-top: 1rem;
   }
 
-  .hero {
-    min-height: auto;
+  .site-nav.is-open {
+    display: flex;
   }
 
-  .hero-layout,
-  .two-column,
-  .contact-panel {
+  .nav-link,
+  .dropdown-toggle {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 0;
+    text-align: left;
+  }
+
+  .dropdown-menu {
+    position: static;
+    display: none;
+    min-width: 0;
+    padding: 0.5rem 0 0.75rem 1.75rem;
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+  }
+
+  .dropdown-menu::before {
+    display: none;
+  }
+
+  .has-dropdown.is-open .dropdown-menu {
+    display: block;
+    transform: none;
+  }
+
+  .image-strip {
     grid-template-columns: 1fr;
   }
 
-  .card-grid {
+  .strip-image {
+    display: none;
+    height: 260px;
+  }
+
+  .strip-image.is-active {
+    display: block;
+  }
+
+  .feature-grid,
+  .feature-grid-reverse,
+  .footer-grid {
     grid-template-columns: 1fr;
+  }
+
+  .feature-grid-reverse .spotlight-title-block {
+    order: -1;
+  }
+
+  .gallery-section {
+    padding-bottom: 5rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .header-inner {
+    gap: 1rem;
+  }
+
+  .site-logo {
+    font-size: 1.3rem;
+  }
+
+  .search-link {
+    width: 34px;
+    height: 34px;
+  }
+
+  .button {
+    font-size: 1.2rem;
+  }
+
+  .image-card span {
+    position: static;
+    display: block;
+    background: var(--white);
+  }
+
+  .email-row {
+    flex-direction: column;
+  }
+
+  .email-row button {
+    width: 100%;
+    height: 44px;
   }
 }
