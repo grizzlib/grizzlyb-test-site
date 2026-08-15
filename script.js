@@ -3,6 +3,7 @@
 const menuToggle = document.querySelector(".menu-toggle");
 const primaryNav = document.querySelector("#primary-nav");
 const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 if (menuToggle && primaryNav) {
   menuToggle.addEventListener("click", () => {
@@ -28,7 +29,7 @@ function rotateItems(items, activeIndex) {
 const stripImages = document.querySelectorAll(".strip-image");
 let stripIndex = 0;
 
-if (stripImages.length > 1) {
+if (stripImages.length > 1 && !prefersReducedMotion) {
   setInterval(() => {
     stripIndex = (stripIndex + 1) % stripImages.length;
     rotateItems(stripImages, stripIndex);
@@ -51,7 +52,7 @@ galleryDots.forEach((dot, index) => {
   });
 });
 
-if (gallerySlides.length > 1) {
+if (gallerySlides.length > 1 && !prefersReducedMotion) {
   setInterval(() => {
     showGallerySlide((galleryIndex + 1) % gallerySlides.length);
   }, 5000);
