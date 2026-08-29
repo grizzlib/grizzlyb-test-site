@@ -57,3 +57,35 @@ if (gallerySlides.length > 1 && !prefersReducedMotion) {
     showGallerySlide((galleryIndex + 1) % gallerySlides.length);
   }, 5000);
 }
+
+const contactForm = document.querySelector("[data-contact-form]");
+const formStatus = document.querySelector("[data-form-status]");
+
+if (contactForm && formStatus) {
+  contactForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const submitButton = contactForm.querySelector('[type="submit"]');
+    submitButton.disabled = true;
+    formStatus.className = "form-status";
+    formStatus.textContent = "Sending your message…";
+
+    try {
+      const data = Object.fromEntries(new FormData(contactForm));
+      const response = await fetch(contactForm.action, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(result.error || "We could not send your message.");
+      contactForm.reset();
+      formStatus.className = "form-status is-success";
+      formStatus.textContent = "Thank you! Your message has been sent.";
+    } catch (error) {
+      formStatus.className = "form-status is-error";
+      formStatus.textContent = error.message || "We could not send your message. Please try again.";
+    } finally {
+      submitButton.disabled = false;
+    }
+  });
+}

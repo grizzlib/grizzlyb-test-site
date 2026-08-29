@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Contact Signature Tours Travel to begin planning a personalized trip.">
+  <title>Contact Us | Signature Tours Travel</title><link rel="stylesheet" href="styles.css?v=20260829">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header"><div class="header-inner container container-wide"><a class="site-logo" href="index.html" aria-label="Signature Tours Travel home"><img src="images/sig-tours-logo-only-transparent-bg.png" alt="Signature Tours Travel"></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button><nav id="primary-nav" class="site-nav" aria-label="Primary navigation"><a class="nav-link" href="themed-travel.html">Themed Travel</a><a class="nav-link" href="vacations.html">Vacations</a><a class="nav-link" href="#">Groups</a><a class="nav-link" href="about-us.html">About Us</a><a class="nav-link" href="contact.html" aria-current="page">Contact Us</a><div class="nav-item has-dropdown"><button class="nav-link dropdown-toggle" type="button" aria-expanded="false">More</button><ul class="dropdown-menu"><li><a href="spotlight.html">Spotlight</a></li><li><a href="#">Cruises</a></li><li><a href="#">Resorts</a></li><li><a href="#">Destinations</a></li><li><a href="#">Travel Tips</a></li><li><a href="#">Frequently Asked Questions</a></li></ul></div></nav><a class="button button-secondary search-button" href="#" aria-label="Search the site">Search</a></div></header>
+  <main id="main-content" class="contact-page">
+    <header class="interior-page-header"><div class="container"><h1>Let’s Plan Your Next Adventure</h1><p>Tell us a little about the trip you have in mind. We’ll be in touch to start creating an experience tailored to you.</p></div></header>
+    <section class="contact-form-section"><div class="container contact-layout">
+      <div class="contact-intro"><h2>Contact Signature Tours Travel</h2><p>Whether you are planning a family vacation, themed tour, group experience, or one of our spotlight trips, we would love to hear from you.</p><p><strong>Phone</strong><br><a href="tel:+13362109271">336-210-9271</a></p><p><strong>Email</strong><br><a href="mailto:info@signaturetourstravel.com">info@signaturetourstravel.com</a></p></div>
+      <form class="contact-form" data-contact-form action="/api/contact" method="post">
+        <div class="form-grid"><label>First name<input name="firstName" autocomplete="given-name" required maxlength="80"></label><label>Last name<input name="lastName" autocomplete="family-name" required maxlength="80"></label></div>
+        <label>Email address<input name="email" type="email" autocomplete="email" required maxlength="160"></label>
+        <label>Phone number <span>(optional)</span><input name="phone" type="tel" autocomplete="tel" maxlength="40"></label>
+        <label>What kind of trip interests you?<select name="interest"><option value="">Choose one</option><option>Vacation</option><option>Themed Travel</option><option>Spotlight Tour</option><option>Group Travel</option><option>Other</option></select></label>
+        <label>Tell us about your trip<textarea name="message" rows="7" required maxlength="4000" placeholder="Where would you like to go, who is traveling, and when?"></textarea></label>
+        <label class="form-honeypot" aria-hidden="true">Company website<input name="website" tabindex="-1" autocomplete="off"></label>
+        <button class="button button-primary" type="submit">Send Message</button><p class="form-status" data-form-status role="status" aria-live="polite"></p>
+      </form>
+    </div></section>
+  </main>
+  <footer class="site-footer"><div class="footer-inner container container-wide"><a class="footer-brand" href="index.html">Signature Tours Travel.</a><p class="social-heading">Check Us Out on Social Media!</p><div class="social-links"><a href="#">Instagram</a><a href="#">Facebook</a><a href="#">LinkedIn</a></div><p class="copyright">COPYRIGHT &copy; 2025 SIGNATURE TOURS TRAVEL - ALL RIGHTS RESERVED.</p></div></footer>
+  <script src="script.js?v=20260829"></script>
+</body>
+</html>
