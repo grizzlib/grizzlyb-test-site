@@ -38,12 +38,16 @@ if (stripImages.length > 1 && !prefersReducedMotion) {
 
 const gallerySlides = document.querySelectorAll(".gallery-slide");
 const galleryDots = document.querySelectorAll(".slide-dot");
+const galleryCaption = document.querySelector("[data-gallery-caption]");
 let galleryIndex = 0;
 
 function showGallerySlide(index) {
   galleryIndex = index;
   rotateItems(gallerySlides, galleryIndex);
   rotateItems(galleryDots, galleryIndex);
+  if (galleryCaption && gallerySlides[galleryIndex]) {
+    galleryCaption.textContent = gallerySlides[galleryIndex].alt;
+  }
 }
 
 galleryDots.forEach((dot, index) => {
